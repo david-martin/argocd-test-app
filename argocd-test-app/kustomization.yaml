@@ -1,0 +1,5 @@
+# Adds namespace to all resources.
+namespace: argocd-test-app
+
+resources:
+  - ./secret-with-vault-placeholder.yaml

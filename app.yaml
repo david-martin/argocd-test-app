@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
+  name: argocd-test-app
+spec:
+  destination:
+    name: in-cluster
+    namespace: argocd-test-app
+  project: argocd-test-app
+  source:
+    repoURL: https://github.com/david-martin/argocd-test-app.git
+    targetRevision: main
+    path: argocd-test-app
+    plugin:
+      name: argocd-vault-plugin-kustomize
+  syncPolicy:
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/
+    automated:
+      selfHeal: true # Required to reset Observability CR changes that OLM sets to defaults 
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
