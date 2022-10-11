@@ -2,4 +2,5 @@
 namespace: argocd-test-app
 
 resources:
+  - ./namespace.yaml
   - ./secret-with-vault-placeholder.yaml
