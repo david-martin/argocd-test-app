@@ -5,6 +5,11 @@ metadata:
     argocd.argoproj.io/sync-options: PruneLast=true
   name: argocd-test-ingress-managedfields
 spec:
+  ignoreDifferences:
+  - kind: "Ingress"
+    group: "networking.k8s.io"
+    jsonPointers:
+    - /spec/rules
   destination:
     name: in-cluster
     namespace: argocd-test-ingress-managedfields
@@ -19,3 +24,4 @@ spec:
     # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
     syncOptions:
     - ApplyOutOfSyncOnly=true
+    - RespectIgnoreDifferences=true
