@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     path: argocd-test-app
     plugin:
-      name: argocd-vault-plugin-kustomize
+      name: argocd-vault-plugin-kustomize_4_5_7
   syncPolicy:
     # https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/
     automated:

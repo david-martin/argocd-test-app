@@ -4,7 +4,9 @@ metadata:
   name: argocd-test-app
 spec:
   destinations:
-  - namespace: argocd-test-app,argocd-test-ingress-managedfields
+  - namespace: argocd-test-app
+    name: in-cluster
+  - namespace: argocd-test-ingress-managedfields
     name: in-cluster
   clusterResourceWhitelist:
     - group: 'rbac.authorization.k8s.io'

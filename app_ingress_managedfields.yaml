@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     path: argocd-test-ingress-managedfields
     plugin:
-      name: kustomize
+      name: argocd-vault-plugin-kustomize_4_5_7
   syncPolicy:
     # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
     syncOptions:
