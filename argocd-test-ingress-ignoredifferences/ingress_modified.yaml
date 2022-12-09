@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-test-ingress-ignoredifferences
+spec:
+  rules:
+    - host: modified2.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-test-ingress-ignoredifferences
+                port:
+                  number: 8000

@@ -3,19 +3,25 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: PruneLast=true
-  name: argocd-test-ingress-managedfields
+  name: argocd-test-ingress-ignoredifferences
 spec:
+  ignoreDifferences:
+  - kind: "Ingress"
+    group: "networking.k8s.io"
+    jsonPointers:
+    - /spec/rules
   destination:
     name: in-cluster
-    namespace: argocd-test-ingress-managedfields
+    namespace: argocd-test-ingress-ignoredifferences
   project: argocd-test-app
   source:
     repoURL: https://github.com/david-martin/argocd-test-app.git
     targetRevision: main
-    path: argocd-test-ingress-managedfields
+    path: argocd-test-ingress-ignoredifferences
     plugin:
       name: argocd-vault-plugin-kustomize_4_5_7
   syncPolicy:
     # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
     syncOptions:
     - ApplyOutOfSyncOnly=true
+    - RespectIgnoreDifferences=true

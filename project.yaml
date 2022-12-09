@@ -8,6 +8,8 @@ spec:
     name: in-cluster
   - namespace: argocd-test-ingress-managedfields
     name: in-cluster
+  - namespace: argocd-test-ingress-ignoredifferences
+    name: in-cluster
   clusterResourceWhitelist:
     - group: 'rbac.authorization.k8s.io'
       kind: 'ClusterRole'

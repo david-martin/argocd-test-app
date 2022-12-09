@@ -5,3 +5,4 @@ resources:
   - ./project.yaml
   - ./app.yaml
   - ./app_ingress_managedfields.yaml
+  - ./app_ingress_ignoredifferences.yaml
