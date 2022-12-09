@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
+  name: argocd-test-ingress-managedfields
+spec:
+  destination:
+    name: in-cluster
+    namespace: argocd-test-ingress-managedfields
+  project: argocd-test-app
+  source:
+    repoURL: https://github.com/david-martin/argocd-test-app.git
+    targetRevision: main
+    path: argocd-test-ingress-managedfields
+    plugin:
+      name: kustomize
+  syncPolicy:
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
+    syncOptions:
+    - ApplyOutOfSyncOnly=true

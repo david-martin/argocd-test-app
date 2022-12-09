@@ -4,3 +4,4 @@ namespace: argocd
 resources:
   - ./project.yaml
   - ./app.yaml
+  - ./app_ingress_managedfields.yaml

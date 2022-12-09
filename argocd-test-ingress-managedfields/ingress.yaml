@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-test-ingress-managedfields
+spec:
+  rules:
+    - host: argocd-test-ingress-managedfields.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-test-ingress-managedfields
+                port:
+                  number: 8000
