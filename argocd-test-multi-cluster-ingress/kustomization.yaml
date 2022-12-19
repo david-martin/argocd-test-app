@@ -1,0 +1,8 @@
+# Adds namespace to all resources.
+namespace: argocd-test-ingress-ignoredifferences
+
+resources:
+  - ./namespace.yaml
+  - ./service.yaml
+  - ./deployment.yaml
+  - ./ingress.yaml
