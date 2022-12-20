@@ -1,5 +1,5 @@
 # Adds namespace to all resources.
-namespace: argocd-test-ingress-ignoredifferences
+namespace: argocd-test-multi-cluster-ingress
 
 resources:
   - ./namespace.yaml
